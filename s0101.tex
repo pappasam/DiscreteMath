@@ -1,0 +1,154 @@
+\input{./utils/packages.tex}
+
+\title{Section 1.1 \\ Statement Forms and Logical Equivalences}
+\author{Samuel Roeca}
+
+%################################################
+\begin{document}
+\maketitle
+\begin{description}
+%################################################
+	\item[1] A statement; True
+	\item[2] A statement; False
+	\item[3] Not a statement; it is a declarative sentence
+	\item[4] Not a statement; it is circular in nature and impossible to declare True or False.
+	\item[5] \hfill \\
+		\begin{tabular}{c | c | c || c}
+			$p$ & 
+			$q$ & 
+			$\lnot q$ & 
+			$p \lor \lnot q$ \\
+			\hline
+			F & F & T & T \\
+			F & T & F & F \\
+			T & F & T & T \\
+			T & T & F & T \\
+		\end{tabular}
+	\item[6] \hfill \\
+		\begin{tabular}{c | c | c | c | c | c || c}
+			$p$ & 
+			$q$ & 
+			$r$ & 
+			$\lnot p$ & 
+			$\lnot r$ & 
+			$q \lor \lnot r$ & 
+			$\lnot p \land (q \lor \lnot r)$ \\
+			\hline
+			F & F & F & T & T & T & T \\
+			F & F & T & T & F & F & F \\
+			F & T & F & T & T & T & T \\
+			F & T & T & T & F & T & T \\
+			T & F & F & F & T & T & F \\
+			T & F & T & F & F & F & F \\
+			T & T & F & F & T & T & F \\
+			T & T & T & F & F & T & F \\
+		\end{tabular}
+	\item[7] \hfill \\
+		\begin{tabular}{c | c | c | c | c || c}
+			$p$ & %	1
+			$q$ & %	2
+			$r$ & %	3
+			$\lnot p$ & % 4
+			$q \land r$ & % 5
+			$\lnot p \rightarrow (q \land r)$ \\ % 6
+			\hline
+			%   2   3   4   5   6
+			F & F & F & T & F & F \\
+			F & F & T & T & F & F \\
+			F & T & F & T & F & F \\
+			F & T & T & T & T & T \\
+			T & F & F & F & F & T \\
+			T & F & T & F & F & T \\
+			T & T & F & F & F & T \\
+			T & T & T & F & T & T \\
+		\end{tabular}
+	\item[9] \hfill \\
+		\begin{tabular}{c | c | c | c || c}
+			$p$ & %	1
+			$q$ & %	2
+			$r$ & %	3
+			$p \rightarrow q$ & % 4
+			$(p \rightarrow q) \lor r$ \\ % 5
+			\hline
+			%   2   3   4   5
+			F & F & F & T & T \\
+			F & F & T & T & T \\
+			F & T & F & T & T \\
+			F & T & T & T & T \\
+			T & F & F & F & F \\
+			T & F & T & F & T \\
+			T & T & F & T & T \\
+			T & T & T & T & T \\
+		\end{tabular}
+	\item[17] \hfill \\
+		\begin{description}
+			\item[a] \hfill \\
+				\begin{tabular}{c | c || c}
+					$p$ & % 1
+					$\lnot p$ & % 2
+					$\lnot \lnot p$ \\ % 3
+					\hline
+					%   2   3
+					F & T & F \\
+					T & F & T \\
+				\end{tabular}
+				\begin{proof}
+					Since $p$ and $\lnot \lnot p$ have the same truth table,
+					$p \equiv \lnot \lnot p$
+				\end{proof}
+			\item[b] \hfill \\
+				\begin{tabular}{c | c | c | c}
+					$\underline{t}$ & % 1
+					$\underline{f}$ & % 2
+					$\lnot \underline{t}$ & % 3
+					$\lnot \underline{f}$ \\ % 4
+					\hline
+					T & F & F & T \\
+				\end{tabular}
+				\begin{proof}
+					Since the truth tables for $\lnot \underline{t}$ and $\underline{f}$
+					are equivalent $\lnot \underline{t} \equiv \underline{f}$. Similarly, since
+					the truth tables for $\lnot \underline{f}$ and $\underline{t}$ are equivalent,
+					$\lnot \underline{f} \equiv \underline{t}$.
+				\end{proof}
+		\end{description}
+	\item[21] \hfill \\
+		\begin{align*}
+			p \lor q 
+			&\equiv \lnot \lnot p \lor \lnot \lnot q 		\tag*{Double Negativity}
+			\\&\equiv \lnot(\lnot p \land \lnot q) \square	\tag*{DeMorgan's Laws}
+		\end{align*}
+	\item[35] Not equivalent. They sometimes differ.
+	\item[37] Not equivalent. I'm sloppy at truth tables.
+	\item[39] The two statements are equivalent. 
+	\item[41] 
+		(a) $\lnot q \rightarrow p$
+		(b) $q \rightarrow \lnot p$
+		(c) $\lnot p \rightarrow q$
+		(d) (See 1.6) $p \land q$
+	\item[43] 
+		(a) $r \rightarrow p \land \lnot q$
+		(b) $\lnot r \rightarrow \lnot p \lor q$
+		(c) $\lnot p \lor q \rightarrow \lnot r$
+		(d) $p \land \lnot q \land \lnot r$
+	\item[45] \hfill \\
+		(a) If Ted fails, then Ted's average is less than 60 \\
+		(b) If Ted does not fail, then Ted's average is not less than 60 \\
+		(c) If Ted's average is not less than 60, then Ted does not fail \\
+		(d) Ted's average is less than 60, and Ted does not fail
+	\item[47] \hfill \\
+		(a) If George is going to a movie or dancing, then George feels well \\
+		(b) If George is not going to a movie or dancing, then George does not feel well \\
+		(c) If George does not feel well, then George is not going to a movie or dancing \\
+		(d) George feels well and George is not going to a movie or dancing
+	\item[48] \hfill \\
+		(a) If Anna is not graduating, then Anna is failing history and psychology \\
+		(b) If Anna is graduating, then Anna is not failing history and psychology \\
+		(c) If Anna is not failing history and psychology, then Anna is graduating \\
+		(d) Anna is failng history and psychology and Anna is graduating
+	\item[49] $\lnot p \land q$ (Verified with truth table, although DeMorgan's laws work too)
+
+%################################################
+\end{description}
+\end{document}
+%################################################
